@@ -15,4 +15,6 @@ const makeElement = (tag, classes, innerText, attributes) => {
     return element;
 };
 
-export { makeElement };
+export { 
+    makeElement
+};

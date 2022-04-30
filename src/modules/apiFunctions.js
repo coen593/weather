@@ -14,16 +14,16 @@ const getWeather = async (lat, lon) => {
 
 const getCoordinates = async (loc) => {
     try {
-        const url = `http://api.openweathermap.org/geo/1.0/direct?q=${loc}&limit=1&appid=5f5992cceef1e1c9dcdf0816fc3dbd5d`;
+        const url = `https://api.myptv.com/geocoding/v1/locations/by-text?searchText=${loc}&apiKey=OTdkM2MzZTcyMGQ5NDMwMWI0YTVlYWU3Y2ZjMzQyNTk6NTIzOWQxNmEtZTE4OC00NzEwLTlhMzAtNTg5YTM3MmFmMGNl`
         const response = await fetch(url, {
             mode: "cors",
         });
         const coord = await response.json();
-        if (!coord.length) {
-            throw new Error();
+        if (!coord.locations.length) {
+            throw new Error('Location not found');
         }
-        const { lat, lon } = coord[0];
-        return { lat, lon };
+        const { latitude, longitude } = coord.locations[0].referencePosition;
+        return { latitude, longitude };
     } catch (e) {
         console.log(e);
     }
@@ -32,8 +32,8 @@ const getCoordinates = async (loc) => {
 
 const getWeatherAtLocation = async (loc) => {
     try {
-        const { lat, lon } = await getCoordinates(loc);
-        const weather = await getWeather(lat, lon);
+        const { latitude, longitude } = await getCoordinates(loc);
+        const weather = await getWeather(latitude, longitude);
         console.log(weather);
     } catch (e) {
         console.log(e)

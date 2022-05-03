@@ -1,4 +1,4 @@
-import './style.css'
-import { initUI } from './modules/domFunctions'
+import "./style.css";
+import { initUI } from "./modules/domFunctions";
 
-initUI()
+initUI();

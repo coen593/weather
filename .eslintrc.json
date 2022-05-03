@@ -12,7 +12,6 @@
         "sourceType": "module"
     },
     "rules": {
-        "import/prefer-default-export": "off",
-        "indent": ["error", 4]
+        "import/prefer-default-export": "off"
     }
 }

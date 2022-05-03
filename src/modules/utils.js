@@ -5,7 +5,7 @@ const makeElement = (tag, classes, innerText, attributes) => {
             element.classList.add(c);
         });
     }
-    if (innerText) element.innerText = innerText;
+    if (innerText) element.innerHTML = innerText;
     if (attributes) {
         Object.keys(attributes).forEach((key) => {
             element.setAttribute(key, attributes[key]);
@@ -15,6 +15,24 @@ const makeElement = (tag, classes, innerText, attributes) => {
     return element;
 };
 
+const removeChildElements = (element) => {
+    let child = element.lastElementChild;
+    while (child) {
+        element.removeChild(child);
+        child = element.lastElementChild;
+    }
+};
+
+const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
+const kToC = k => k - 273.15
+
+const kToF = k => (k - 273.15) * 9 / 5 + 32
+
 export { 
-    makeElement
+    makeElement, 
+    removeChildElements, 
+    capitalizeFirstLetter,
+    kToC,
+    kToF
 };

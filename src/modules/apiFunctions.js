@@ -1,3 +1,5 @@
+import { renderWeather } from './domFunctions'
+
 const getWeather = async (lat, lon) => {
     try {
         const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=5f5992cceef1e1c9dcdf0816fc3dbd5d`;
@@ -23,7 +25,8 @@ const getCoordinates = async (loc) => {
             throw new Error('Location not found');
         }
         const { latitude, longitude } = coord.locations[0].referencePosition;
-        return { latitude, longitude };
+        const { address } = coord.locations[0]
+        return { latitude, longitude, address };
     } catch (e) {
         console.log(e);
     }
@@ -32,9 +35,9 @@ const getCoordinates = async (loc) => {
 
 const getWeatherAtLocation = async (loc) => {
     try {
-        const { latitude, longitude } = await getCoordinates(loc);
+        const { latitude, longitude, address } = await getCoordinates(loc);
         const weather = await getWeather(latitude, longitude);
-        console.log(weather);
+        renderWeather(weather, address)
     } catch (e) {
         console.log(e)
     }

@@ -40,7 +40,6 @@ const weatherInfo = (weather, address) => {
     container.appendChild(tempC);
     container.appendChild(tempF);
 
-    console.log(weather)
     const icon = makeElement('img',['info-icon'],null, {
         'src': `http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@2x.png`
     })

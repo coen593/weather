@@ -1,4 +1,4 @@
-import { makeElement, removeChildElements } from "./utils";
+import { removeChildElements } from "./utils";
 import { searchBox } from "./components/search";
 import { weatherInfo } from "./components/weatherInfo";
 import { tempSwitch } from "./components/tempSwitch";
@@ -24,11 +24,6 @@ const switchMeasure = () => {
   convertUnitsDOM();
 };
 
-const initUI = () => {
-  const container = makeElement("div", ["container"]);
-  document.body.appendChild(container);
-};
-
 const renderWeather = (json, address) => {
   const container = document.querySelector(".container");
   removeChildElements(container);
@@ -40,4 +35,4 @@ const renderWeather = (json, address) => {
   convertUnitsDOM();
 };
 
-export { initUI, renderWeather };
+export { renderWeather };

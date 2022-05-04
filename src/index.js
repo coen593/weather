@@ -1,14 +1,15 @@
 import "./style.css";
-import { initUI } from "./modules/domFunctions";
-import { handlePermission } from "./modules/apiFunctions"
+import { makeElement } from "./modules/utils";
+import { handlePermission } from "./modules/apiFunctions";
 
-initUI();
-
-// Set default temp to Celsius in local storage (if none set yet)
+// Initialize app
 (() => {
-    if (!window.localStorage.temp) {
-        window.localStorage.temp = 'metric'
-    }
-})()
+  const container = makeElement("div", ["container"]);
+  document.body.appendChild(container);
 
-handlePermission()
+  if (!window.localStorage.temp) {
+    window.localStorage.temp = "metric";
+  }
+})();
+
+handlePermission();

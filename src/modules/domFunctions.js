@@ -27,11 +27,6 @@ const switchMeasure = () => {
 const initUI = () => {
   const container = makeElement("div", ["container"]);
   document.body.appendChild(container);
-  container.appendChild(searchBox());
-  const switchButton = tempSwitch();
-  container.appendChild(switchButton);
-  switchButton.addEventListener("click", () => switchMeasure());
-  convertUnitsDOM()
 };
 
 const renderWeather = (json, address) => {

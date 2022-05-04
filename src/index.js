@@ -1,5 +1,6 @@
 import "./style.css";
 import { initUI } from "./modules/domFunctions";
+import { handlePermission } from "./modules/apiFunctions"
 
 initUI();
 
@@ -9,3 +10,5 @@ initUI();
         window.localStorage.temp = 'metric'
     }
 })()
+
+handlePermission()

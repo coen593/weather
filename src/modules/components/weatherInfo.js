@@ -12,10 +12,11 @@ const weatherInfo = (weather, address) => {
   );
   container.appendChild(description);
 
+  const locText = typeof address === "string" ? "Current location" : `${address.city}, ${address.countryName}`
   const location = makeElement(
     "span",
     ["info-location"],
-    `${address.city}, ${address.countryName}`
+    locText
   );
   container.appendChild(location);
 

@@ -44,4 +44,22 @@ const getWeatherAtLocation = async (loc) => {
   return null;
 };
 
-export { getWeatherAtLocation };
+const initGeoGranted = async (pos) => {
+  const weather = await getWeather(pos.coords.latitude, pos.coords.longitude)
+  renderWeather(weather, "Current location")
+};
+
+const initGeoDenied = () => getWeatherAtLocation('London')
+
+const handlePermission = async () => {
+  const result = await navigator.permissions.query({name:'geolocation'})
+  if (result.state === "prompt") {
+    navigator.geolocation.getCurrentPosition(initGeoGranted, initGeoDenied)
+  } else if (result.state === "granted") {
+    navigator.geolocation.getCurrentPosition(initGeoGranted)
+  } else if (result.state === "denied") {
+    initGeoDenied()
+  }
+}
+
+export { getWeatherAtLocation, handlePermission };

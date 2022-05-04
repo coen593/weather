@@ -29,12 +29,12 @@ const weatherInfo = (weather, address) => {
 
   const tempC = makeElement(
     "h2",
-    ["info-temp", "celsius"],
+    ["info-temp", "switch", "metric"],
     `${Math.round(kToC(weather.current.temp))} &deg;C`
   );
   const tempF = makeElement(
     "h2",
-    ["info-temp", "fahrenheit"],
+    ["info-temp", "switch", "imperial"],
     `${Math.round(kToF(weather.current.temp))} &deg;F`
   );
   container.appendChild(tempC);

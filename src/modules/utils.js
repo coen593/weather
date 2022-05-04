@@ -30,4 +30,10 @@ const kToC = (k) => k - 273.15;
 
 const kToF = (k) => ((k - 273.15) * 9) / 5 + 32;
 
-export { makeElement, removeChildElements, capitalizeFirstLetter, kToC, kToF };
+export { 
+    makeElement, 
+    removeChildElements, 
+    capitalizeFirstLetter, 
+    kToC, 
+    kToF 
+};

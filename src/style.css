@@ -55,3 +55,12 @@ input:not(:placeholder-shown) + .search-label {
 .search-btn img {
     height: 1.5em;
 }
+
+/* Switches between metric / imperial */
+.switch {
+    display: none;
+}
+
+.switch.active {
+    display: block;
+}

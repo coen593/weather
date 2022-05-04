@@ -7,7 +7,6 @@ const convertUnitsDOM = () => {
   const unit = window.localStorage.temp;
   const elements = document.querySelectorAll(".switch");
   elements.forEach((element) => {
-      console.log(element)
     if (element.classList.contains(unit)) {
       element.classList.add("active");
     } else {

@@ -1,3 +1,4 @@
+import "./meyer-reset.css"
 import "./style.css";
 import { makeElement } from "./modules/utils";
 import { handlePermission } from "./modules/apiFunctions";

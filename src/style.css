@@ -1,8 +1,14 @@
+/* General style */
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
 
 /* Info container styling */
 .weather-info {
     display: flex;
     flex-direction: column;
+    grid-row: 1 / 4;
 }
 
 .info-icon {

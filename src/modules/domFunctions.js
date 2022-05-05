@@ -1,7 +1,9 @@
 import { removeChildElements } from "./utils";
 import { searchBox } from "./components/search";
 import { weatherInfo } from "./components/weatherInfo";
+import { weatherDetails } from "./components/weatherDetails";
 import { tempSwitch } from "./components/tempSwitch";
+
 
 const convertUnitsDOM = () => {
   const unit = window.localStorage.temp;
@@ -24,10 +26,11 @@ const switchMeasure = () => {
   convertUnitsDOM();
 };
 
-const renderWeather = (json, address) => {
+const renderWeather = (weather, address) => {
   const container = document.querySelector(".container");
   removeChildElements(container);
-  container.appendChild(weatherInfo(json, address));
+  container.appendChild(weatherInfo(weather, address));
+  container.appendChild(weatherDetails(weather))
   container.appendChild(searchBox());
   const switchButton = tempSwitch();
   container.appendChild(switchButton);

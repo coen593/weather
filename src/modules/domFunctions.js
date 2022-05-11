@@ -27,6 +27,13 @@ const switchHourlyDaily = (input) => {
       div.classList.add('active')
     }
   })
+  const buttons = document.querySelectorAll('.day-hour-switch')
+  buttons.forEach(btn => {
+    btn.classList.remove('active')
+    if (btn.id === input) {
+      btn.classList.add('active')
+    }
+  })
 }
 
 const switchMeasure = () => {

@@ -3,9 +3,9 @@ import { utcToZonedTime } from "date-fns-tz";
 import { makeElement, kToC, kToF, round } from "../utils";
 
 const weatherDaily = (weather) => {
-  const container = makeElement("div", ["weather-daily"]);
+  const container = makeElement("div", ["detail-container", "day-switch"]);
   weather.daily.forEach((day) => {
-    const dayDiv = makeElement("div", ["day-container"]);
+    const dayDiv = makeElement("div", ["day"]);
 
     const dt = format(
       utcToZonedTime(fromUnixTime(day.dt), weather.timezone),

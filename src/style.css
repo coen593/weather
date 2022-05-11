@@ -4,6 +4,10 @@
     grid-template-columns: auto auto;
 }
 
+span {
+    display: block;
+}
+
 /* Info container styling */
 .weather-info {
     display: flex;
@@ -68,5 +72,14 @@ input:not(:placeholder-shown) + .search-label {
 }
 
 .switch.active {
+    display: block;
+}
+
+/* Switches between hourly / daily */
+.detail-container {
+    display: none;
+}
+
+.detail-container.active {
     display: block;
 }

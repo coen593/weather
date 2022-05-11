@@ -3,13 +3,13 @@ import { utcToZonedTime } from "date-fns-tz";
 import { makeElement, kToC, kToF, round } from "../utils";
 
 const weatherHourly= (weather) => {
-  const container = makeElement("div", ["weather-daily"]);
+  const container = makeElement("div", ["detail-container", "hour-switch"]);
   weather.hourly.forEach((hour) => {
-    const hourDiv = makeElement("div", ["day-container"]);
+    const hourDiv = makeElement("div", ["hour"]);
 
     const dt = format(
       utcToZonedTime(fromUnixTime(hour.dt), weather.timezone), "h':'mm a");
-    const date = makeElement("span", ["weather-day"], dt);
+    const date = makeElement("span", ["weather-hour"], dt);
     hourDiv.appendChild(date);
 
     const tempM = makeElement(

@@ -4,6 +4,7 @@ import { weatherInfo } from "./components/weatherInfo";
 import { weatherDetails } from "./components/weatherDetails";
 import { tempSwitch } from "./components/tempSwitch";
 import { weatherDaily } from "./components/weatherDaily";
+import { weatherHourly } from "./components/weatherHourly";
 
 const convertUnitsDOM = () => {
   const unit = window.localStorage.temp;
@@ -35,6 +36,7 @@ const renderWeather = (weather, address) => {
   const switchButton = tempSwitch();
   container.appendChild(switchButton);
   switchButton.addEventListener("click", () => switchMeasure());
+  container.appendChild(weatherHourly(weather))
   container.appendChild(weatherDaily(weather))
   convertUnitsDOM();
 };

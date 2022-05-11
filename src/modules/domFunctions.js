@@ -3,7 +3,7 @@ import { searchBox } from "./components/search";
 import { weatherInfo } from "./components/weatherInfo";
 import { weatherDetails } from "./components/weatherDetails";
 import { tempSwitch } from "./components/tempSwitch";
-
+import { weatherDaily } from "./components/weatherDaily";
 
 const convertUnitsDOM = () => {
   const unit = window.localStorage.temp;
@@ -35,6 +35,7 @@ const renderWeather = (weather, address) => {
   const switchButton = tempSwitch();
   container.appendChild(switchButton);
   switchButton.addEventListener("click", () => switchMeasure());
+  container.appendChild(weatherDaily(weather))
   convertUnitsDOM();
 };
 
